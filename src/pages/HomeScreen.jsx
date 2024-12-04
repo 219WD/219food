@@ -61,7 +61,14 @@ const HomeScreen = () => {
           updateQuantity={updateQuantity}
         />
       )}
-      <Cards addToCart={addToCart} />
+      <Cards onAddToCart={addToCart} />
+      {isCartVisible && (
+        <ShoppingCart
+          cart={cart}
+          removeFromCart={removeFromCart}
+          updateQuantity={updateQuantity}
+        />
+      )}
       <Sugerencia />
       <Services />
       <Footer />

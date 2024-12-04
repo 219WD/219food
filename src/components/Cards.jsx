@@ -14,7 +14,7 @@ const Cards = ({ addToCart }) => {
                     title="Pattymelt"
                     description="Pan de molde, doble carne, doble cheddar, cebolla crispy, salsa de la casa."
                     rating="8.1"
-                    price="12.000"
+                    price="12000"
                     addToCart={addToCart}
                 />
                 <Card
@@ -23,7 +23,7 @@ const Cards = ({ addToCart }) => {
                     title="Rodeo"
                     description="Doble carne, doble cheddar, bacon, dedos de muzzarella, salsa de la casa."
                     rating="9.2"
-                    price="13.500"
+                    price="13500"
                     addToCart={addToCart}
                 />
                 <Card
@@ -32,7 +32,7 @@ const Cards = ({ addToCart }) => {
                     title="Sinaloa"
                     description="Doble carne, pepinillos, guacamole, cebolla, lechuga, tomate, mayonesa."
                     rating="8.5"
-                    price="12.500"
+                    price="12500"
                     addToCart={addToCart}
                 />
             </div>
