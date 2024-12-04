@@ -1,0 +1,57 @@
+.sugerencia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+.image-sugerencia {
+    width: 40vw;
+}
+
+.sugerencia .description h2 {
+    color: #ff6a00;
+    font-size: 2rem;
+}
+
+.sugerencia .description p {
+    color: #333;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+.sugerencia .description button {
+    background: #ff6a00;
+    color: #fff;
+    padding: 0.5rem 2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+@media (max-width: 900px) {
+    .sugerencia {
+        flex-direction: column;
+    }
+
+
+    .image-sugerencia {
+        width: 90vw;
+    }
+
+
+    .sugerencia .description h2 {
+        width: 100%;
+    }
+
+    .sugerencia .description p {
+        width: 100%;
+    }
+
+
+    .sugerencia .description button {
+        width: 100%;
+    }
+}

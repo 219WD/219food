@@ -1,0 +1,42 @@
+.footer {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 1rem;
+}
+
+.footer-logo .logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff6a00;
+    font-family: "DM Sans", serif;
+}
+
+.footer-content h5 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    color: #fff;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.social-icons .icon {
+    font-size: 1.5rem;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.social-icons .icon:hover {
+    color: #f39c12; /* Cambia a un color que te guste */
+}
+
+.footer-hours {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    color: #ccc;
+}

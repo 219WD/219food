@@ -1,0 +1,93 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: transparent;
+  position: relative;
+}
+
+.logo a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff6a00;
+  font-family: "DM Sans", serif;
+}
+
+.nav a {
+  text-decoration: none;
+  margin: 0 1rem;
+  color: #333;
+  transition: color 0.3s;
+  font-family: "Raleway", sans-serif;
+}
+
+.nav a:hover {
+  color: #ff6a00;
+}
+
+.cart-button {
+  background: transparent;
+  border: none;
+  color: #333;
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: relative;
+  margin-left: 1rem;
+}
+
+.cart-button .cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ff6a00;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Menu Toggle */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #333;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav {
+    display: none;
+    flex-direction: column;
+    background: white;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    gap: 0;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+  .nav a {
+    padding: 0.5rem 0;
+    text-align: center;
+  }
+}

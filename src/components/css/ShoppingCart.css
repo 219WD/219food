@@ -1,0 +1,114 @@
+/* Estilo del carrito */
+.cart {
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-width: 500px;
+    background-color: #f9f9f9;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.cart-item h4 {
+    margin: 0;
+    font-size: 1rem;
+    color: #333;
+}
+
+.cart-item p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.buttons-cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cart-item button {
+    background-color: transparent;
+    border: 1px solid #ccc;
+    color: #333;
+    border-radius: 4px;
+    padding: 0.3rem 0.6rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cart-item button:hover {
+    background-color: #f1f1f1;
+}
+
+.cart-total {
+    text-align: right;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 1rem;
+}
+
+/* Botón para eliminar */
+.cart-item .delete-button {
+    background-color: #e53935;
+    color: #fff;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cart-item .delete-button:hover {
+    background-color: #c62828;
+}
+
+.pay-button {
+    background-color: #25d366; /* Color de WhatsApp */
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+    width: 100%;
+    text-align: center;
+    transition: background-color 0.3s;
+  }
+  
+  .pay-button:hover {
+    background-color: #1da851; /* Color más oscuro para hover */
+  }
+  
+  @media (max-width: 900px) {
+    .cart {
+        width: 90%;
+        background-color: #f9f9f9;
+        position: absolute; /* Cambia a fixed para asegurarte de que esté siempre visible */
+        top: 2rem; /* Centrado vertical */
+        left: 50%; /* Centrado horizontal */
+        transform: translate(-50%); /* Ajusta la posición para centrar */
+    }
+  }
