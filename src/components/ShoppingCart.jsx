@@ -55,6 +55,45 @@ const ShoppingCart = ({ cart, setCart, removeFromCart, updateQuantity }) => {
     setModalInfo(null);
   };
 
+  const handleMercadoPago = async () => {
+    if (cart.length === 0) {
+      alert("El carrito está vacío. Agrega productos antes de pagar.");
+      return;
+    }
+
+    const items = cart.map((item) => ({
+      title: item.title,
+      description: item.description,
+      image: item.image,
+      price: parseFloat(item.price),
+      quantity: parseInt(item.quantity, 10),
+    }));
+
+    try {
+      const response = await fetch("https://two19food-back.onrender.com/Mercado_Pago", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(items),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Redirigir al usuario a la URL de MercadoPago
+        window.location.href = data.init_point;
+      } else {
+        console.error("Error:", data.error);
+        alert("Hubo un problema al procesar el pago.");
+      }
+    } catch (error) {
+      console.error("Error de red:", error);
+      alert("Error de conexión al procesar el pago.");
+    }
+  };
+
+
   return (
     <div className="cart">
       <h2>Carrito de Compras</h2>
@@ -107,18 +146,11 @@ const ShoppingCart = ({ cart, setCart, removeFromCart, updateQuantity }) => {
           </button>
           <button
             className="payment-button mercadopago"
-            onClick={() =>
-              openModal({
-                title: 'MercadoPago',
-                details: [
-                  'Abre tu app de MercadoPago para escanear el código QR.',
-                  'Realiza tu pago desde la opción de enviar dinero.',
-                ],
-              })
-            }
+            onClick={handleMercadoPago}
           >
-            MercadoPago
+            Pagar con MercadoPago
           </button>
+
         </div>
       )}
       {modalInfo && (
