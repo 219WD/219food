@@ -7,6 +7,11 @@ const ShoppingCart = ({ cart, setCart, removeFromCart, updateQuantity }) => {
   const [showPaymentOptions, setShowPaymentOptions] = useState(false);
   const [modalInfo, setModalInfo] = useState(null);
 
+  // Campos del formulario
+  const [name, setName] = useState('');
+  const [address, setAddress] = useState('');
+  const [phone, setPhone] = useState('');
+
   // Calcular el total del carrito
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
@@ -26,7 +31,11 @@ const ShoppingCart = ({ cart, setCart, removeFromCart, updateQuantity }) => {
       const price = parseFloat(item.price);
       message += `🍔 ${item.title} (x${item.quantity}) - $${price.toFixed(2)} c/u\n`;
     });
-    message += `\nTotal: $${total.toFixed(2)}\n`;
+    message += `\nTotal: $${total.toFixed(2)}\n\n`;
+    message += `Información del cliente:\n`;
+    message += `📛 Nombre: ${name}\n`;
+    message += `🏠 Dirección: ${address}\n`;
+    message += `📞 Teléfono: ${phone}`;
     return encodeURIComponent(message);
   };
 
@@ -39,12 +48,29 @@ const ShoppingCart = ({ cart, setCart, removeFromCart, updateQuantity }) => {
   };
 
   const handleWhatsAppPay = () => {
+    if (!name || !address || !phone) {
+      alert('Por favor, completa todos los campos antes de enviar.');
+      return;
+    }
+
     const whatsappNumber = '3816671884';
     const message = generateWhatsAppMessage();
     const whatsappURL = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${message}`;
-    window.open(whatsappURL, '_blank');
+    window.location.href = whatsappURL;
     setCart([]);
     localStorage.removeItem('cart');
+  };
+
+  const handleSendReceipt = () => {
+    const whatsappNumber = '3816671884';
+    const message = `¡Hola! Acabo de realizar el pago para el pedido que envié anteriormente. Pronto enviaré el comprobante.\n\n${generateWhatsAppMessage()}`;
+    const whatsappURL = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${message}`;
+    window.location.href = whatsappURL;
+  };
+
+  const copyToClipboard = (text) => {
+    navigator.clipboard.writeText(text);
+    alert(`Copiado: ${text}`);
   };
 
   const openModal = (info) => {
@@ -93,7 +119,6 @@ const ShoppingCart = ({ cart, setCart, removeFromCart, updateQuantity }) => {
     }
   };
 
-
   return (
     <div className="cart">
       <h2>Carrito de Compras</h2>
@@ -130,6 +155,25 @@ const ShoppingCart = ({ cart, setCart, removeFromCart, updateQuantity }) => {
       </div>
       {showPaymentOptions && (
         <div className="payment-options">
+          <h3>Datos para tu envio</h3>
+          <input
+            type="text"
+            placeholder="Nombre"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Dirección"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Teléfono"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+          />
           <button className="payment-button whatsapp" onClick={handleWhatsAppPay}>
             Efectivo (WhatsApp)
           </button>
@@ -150,7 +194,6 @@ const ShoppingCart = ({ cart, setCart, removeFromCart, updateQuantity }) => {
           >
             Pagar con MercadoPago
           </button>
-
         </div>
       )}
       {modalInfo && (
@@ -160,6 +203,9 @@ const ShoppingCart = ({ cart, setCart, removeFromCart, updateQuantity }) => {
             {modalInfo.details.map((detail, index) => (
               <p key={index}>{detail}</p>
             ))}
+            <button className="modal-button copy" onClick={() => copyToClipboard('mi-alias')}>Copiar Alias</button>
+            <button className="modal-button copy" onClick={() => copyToClipboard('1234567890123456789012')}>Copiar CBU</button>
+            <button className="modal-button send" onClick={handleSendReceipt}>Enviar Comprobante</button>
             <button className="close-modal" onClick={closeModal}>
               Cerrar
             </button>

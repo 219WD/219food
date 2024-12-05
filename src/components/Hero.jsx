@@ -2,6 +2,7 @@ import React from 'react';
 import './css/Hero.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom'; // Importamos Link
 
 const Hero = ({ addToCart }) => {
   const specialProduct = {
@@ -25,7 +26,9 @@ const Hero = ({ addToCart }) => {
           <button className="btn-primary" onClick={handleAddToCart}>
             <FontAwesomeIcon icon={faCartShopping} /> Añadir al Carrito
           </button>
-          <button className="btn-secondary">Ver el Menú</button>
+          <Link to="/menu" className="btn-secondary"> {/* Cambiamos el botón por un enlace */}
+            Ver el Menú
+          </Link>
         </div>
       </section>
       <section className="img-container">
