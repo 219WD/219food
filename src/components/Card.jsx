@@ -4,7 +4,7 @@ import { faStar, faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import './css/Card.css';
 
 const Card = ({ id, image, title, description, rating, price, onAddToCart  }) => {
-    const item = { id, image, title, price };
+    const item = { id, image, title, description, price };
     return (
         <div className="card">
             <img src={image} alt={title} className="card-image" />

@@ -42,7 +42,7 @@
 .description p {
     text-align: left;
     width: 30vw;
-    
+
 }
 
 .card button {
@@ -54,4 +54,11 @@
     cursor: pointer;
     font-size: 1rem;
     margin-top: 1rem;
+}
+
+
+@media (max-width: 900px) {
+    .card {
+        width: 350px;
+    }
 }

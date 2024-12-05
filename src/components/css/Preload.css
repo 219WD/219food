@@ -1,0 +1,56 @@
+/* Contenedor centrado */
+.preload-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background:
+        linear-gradient(rgba(244, 235, 220, 0.7), rgba(244, 235, 220, 0.7)),
+        url("https://i.imgur.com/kvoHqmc.jpeg");
+    background-size: cover;
+    /* Asegura que la textura cubra todo el fondo */
+    background-position: center;
+    /* Centra la textura */
+    background-blend-mode: overlay;
+}
+
+/* Animación del SVG */
+.animated-path {
+    stroke-dasharray: 500;
+    /* Longitud aproximada del trazo */
+    stroke-dashoffset: 500;
+    animation: draw 0.3s linear infinite, fade 0.3s ease-in-out infinite;
+}
+
+/* Keyframes para animar el dibujo del trazo */
+@keyframes draw {
+    0% {
+        stroke-dashoffset: 500;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Keyframes para hacer aparecer/desaparecer */
+@keyframes fade {
+
+    0%,
+    100% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+.preload-container h3 {
+    font-family: "Raleway", sans-serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    animation: fade 0.3s ease-in-out infinite;
+}
