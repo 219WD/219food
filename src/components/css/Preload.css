@@ -7,7 +7,7 @@
     height: 100vh;
     background:
         linear-gradient(rgba(244, 235, 220, 0.7), rgba(244, 235, 220, 0.7)),
-        url("https://i.imgur.com/kvoHqmc.jpeg");
+        url("https://res.cloudinary.com/dtxdv136u/image/upload/v1733412580/kvoHqmc_nbvyac.webp");
     background-size: cover;
     /* Asegura que la textura cubra todo el fondo */
     background-position: center;

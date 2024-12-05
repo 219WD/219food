@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'; // Importamos Link
 const Hero = ({ addToCart }) => {
   const specialProduct = {
     id: 999,
-    image: 'https://i.imgur.com/1dp7XQB.png',
+    image: 'https://res.cloudinary.com/dtxdv136u/image/upload/v1733412574/1dp7XQB_nuuyym.webp',
     title: 'Especial de la Casa',
     description: 'Bondiola de cerdo desmenuzada, morrones grillados, cebolla crispy, queso cheddar y salsa bbq.',
     price: 15000,

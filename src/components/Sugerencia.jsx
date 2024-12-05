@@ -9,7 +9,7 @@ const Sugerencia = () => {
         <section className="sugerencia">
             <section className="image-section">
                 <img
-                    src="https://i.imgur.com/Q09itKb.png"
+                    src="https://res.cloudinary.com/dtxdv136u/image/upload/v1733412573/Q09itKb_twvlj6.webp"
                     alt="Combo de hamburguesa con papas y gaseosa"
                     className="image-sugerencia"
                 />

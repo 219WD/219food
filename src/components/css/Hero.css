@@ -3,8 +3,8 @@
     justify-content: center;
     align-items: center;
     background:
-        linear-gradient(to bottom, #292929, #898989),
-        url("/src/assets/Texturelabs_Paper_205M.jpg");
+    linear-gradient(to bottom, #292929, #898989),
+    url("https://res.cloudinary.com/dtxdv136u/image/upload/v1733412949/Texturelabs_Paper_205M_eyfra5.webp");
     background-size: cover;
     /* Asegura que la textura cubra todo el fondo */
     background-position: center;
